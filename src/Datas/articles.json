@@ -10,11 +10,13 @@
       "comments": [
         {
           "id": 1,
+          "img" : "./Images/CommImg/lex.png",
           "username": "Lex Fridman",
           "comment": "This is a great article!"
         },
         {
           "id": 2,
+          "img" : "./Images/CommImg/til.jpg",
           "username": "Till Lindemann",
           "comment": "I learned something new about cats!"
         }
@@ -41,26 +43,31 @@
         "comments": [
             {
               "id": 1,
-              "username": "Jack Black",
+              "img" : "./Images/CommImg/nick.jpg",
+              "username": "Nick Cave",
               "comment": "This is a great article!"
             },
             {
               "id": 2,
+              "img" : "./Images/CommImg/arnold.jpg",
               "username": "Arnold Schwarzenegger",
               "comment": "I learned something new about cats!"
             },
             {
                 "id": 3,
+                "img" : "./Images/CommImg/elon.jpg",
                 "username": "Elon Musk",
                 "comment": "I learned something new about cats!"
             },
             {
                 "id": 4,
+                "img" : "./Images/CommImg/aragorn.jpg",
                 "username": "Aragorn, son of Arathorn",
                 "comment": "I learned something new about cats!"
             },
             {
                 "id": 5,
+                "img" : "./Images/CommImg/shakira.jpg",
                 "username": "Shakira",
                 "comment": "I learned something new about cats!"
             }
@@ -77,6 +84,7 @@
         "comments": [
             {
               "id": 1,
+              "img" : "./Images/CommImg/sam.jpg",
               "username": "Sam Altman",
               "comment": "This is a great article!"
             }
@@ -93,11 +101,13 @@
         "comments" : [
             {
               "id": 1,
+              "img" : "./Images/CommImg/geralt.jpg",
               "username": "Geralt of Rivia",
               "comment": "This is a great article!"
             },
             {
               "id": 2,
+              "img" : "./Images/CommImg/kim.jpg",
               "username": "Kim Kardashian",
               "comment": "I learned something new about cats!"
             }

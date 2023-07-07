@@ -48,6 +48,7 @@ export default function InArticleDetail(){
                 <h2>Comments({comments.length})</h2>    
                 {comments.map((comment) => (
                     <div key={comment.id}>
+                    <img style={{width: "50px", height: "50px", borderRadius: "50%"}} src={comment.img} />    
                     <p>{comment.username}</p>
                     <p>{comment.comment}</p>
                     </div>

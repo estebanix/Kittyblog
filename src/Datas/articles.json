@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "img" : "cat1.jpg",
+      "img" : "./Images/cat1.jpg",
       "title": "Mačička mňauka",
       "author": "Samuel Kertés",
       "date": "07/05/17",
@@ -11,7 +11,7 @@
     },
     {
         "id": 2,
-        "img" : "cat2.jpg",
+        "img" : "./Images/cat2.jpg",
         "title": "Prečo mačičky toľko kakaju?",
         "author": "Samuel Kertés",
         "date": "07/05/17",
@@ -21,7 +21,7 @@
     },
     {
         "id": 3,
-        "img" : "cat3.jpg",
+        "img" : "./Images/cat3.jpg",
         "title": "Ako správne škrabkať mačičku",
         "author": "Samuel Kertés",
         "date": "07/05/17",
@@ -31,7 +31,7 @@
     },
     {
         "id": 4,
-        "img" : "cat4.jpg",
+        "img" : "./Images/cat4.jpg",
         "title": "Mňam Muičko Mňau",
         "author": "Samuel Kertés",
         "date": "07/05/17",
@@ -41,7 +41,7 @@
     },
     {
         "id": 5,
-        "img" : "cat5.jpg",
+        "img" : "./Images/cat5.jpg",
         "title": "Kašila vareška mačičku",
         "author": "Samuel Kertés",
         "date": "07/05/17",

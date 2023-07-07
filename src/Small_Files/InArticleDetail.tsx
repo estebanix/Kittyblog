@@ -40,7 +40,7 @@ export default function InArticleDetail(){
                     <p>{author}</p>
                     <p>{date}</p>
                 </div>
-                <div className="inarticledetail--imgbox" style={{backgroundImage: `url(${`./Images/${img}`})`}}></div>
+                <div className="inarticledetail--imgbox" style={{backgroundImage: `url(${img})`}}></div>
             </div>
             <div className="inarticledetail--smallbox">
                 <h2 style={{fontSize: "24px"}}>Related articles</h2>

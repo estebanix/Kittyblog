@@ -22,7 +22,7 @@ export default function InArticleList() {
   const components = blogData.map((dat: BlogData) => {
     return (
       <div className="inarticlelist--box" key={dat.id}>
-        <img src={`./Images/${dat.img}`} />
+        <img src={dat.img} />
         <div className="inarticlelist--minicontainer">
           <h4>{dat.title}</h4>
           <div className="inarticlelist--minibox">

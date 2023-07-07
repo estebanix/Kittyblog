@@ -18,7 +18,7 @@ export default function InAdminList(){
             <p style={{width:"20%"}}>{dat.title}</p>
             <p style={{width:"30%"}}>{dat.shortDes}</p>
             <p style={{width:"15%"}}>{dat.author}</p>
-            <p style={{width:"15%"}}>{dat.comments}</p>
+            <p style={{width:"15%"}}>{dat.comments.length}</p>
             <div style={{width:"10%"}}>
                 <button><Link to="/editarticle"><FontAwesomeIcon icon={faPen} /></Link></button>
                 <button onClick={() => deleteArticle(dat.id)}><FontAwesomeIcon icon={faTrash} /></button>
@@ -33,11 +33,11 @@ export default function InAdminList(){
                 <Link to="/newarticle"><button>Create new article</button></Link>
             </div>
             <div className="inadminlist--line bigline">
-                <p style={{width:"20%"}}>Article title</p>
-                <p style={{width:"35%"}}>Perex</p>
-                <p style={{width:"20%"}}>Author</p>
-                <p style={{width:"15%"}}># of comments</p>
-                <p style={{width:"10%"}}>Actions</p>
+                <p style={{ width: "25%" }}>Article title</p>
+                <p style={{ width: "35%" }}>Perex</p>
+                <p style={{ width: "20%" }}>Author</p>
+                <p style={{ width: "20%" }}># of comments</p>
+                <p style={{ width: "10%" }}>Actions</p>
             </div>
             {components}
         </div>

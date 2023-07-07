@@ -14,7 +14,7 @@ interface BlogData {
 
 export default function InArticleDetail(){
 
-    const { id, title, author, date, img } = useContext(Context).currentBlogData;
+    const { id, title, author, date, img, shortDes, comments } = useContext(Context).currentBlogData;
     const {blogData, setCurrentBlogData} = useContext(Context);
 
     const relatedArticles = blogData.filter((article) => {
@@ -40,7 +40,19 @@ export default function InArticleDetail(){
                     <p>{author}</p>
                     <p>{date}</p>
                 </div>
-                <div className="inarticledetail--imgbox" style={{backgroundImage: `url(${img})`}}></div>
+                <div className="inarticledetail--imgbox" style={{backgroundImage: `url(${img})`, marginBottom: "30px"}}></div>
+                <p className="markdown--para">{shortDes}</p>
+                <p className="markdown--para">{shortDes}</p>
+                <p className="markdown--para">{shortDes}</p>
+                <div className="comments--container">
+                <h2>Comments({comments.length})</h2>    
+                {comments.map((comment) => (
+                    <div key={comment.id}>
+                    <p>{comment.username}</p>
+                    <p>{comment.comment}</p>
+                    </div>
+                ))}
+                </div>
             </div>
             <div className="inarticledetail--smallbox">
                 <h2 style={{fontSize: "24px"}}>Related articles</h2>

@@ -9,7 +9,7 @@ interface BlogData {
   author: string;
   date: string;
   shortDes: string;
-  comments: number;
+  comments: string;
 }
 
 export default function InArticleList() {
@@ -34,7 +34,7 @@ export default function InArticleList() {
             <Link to={`/${dat.id}`} onClick={() => handleData(dat)}>
               <button>Read whole article</button>
             </Link>
-            <p>{dat.comments} comments</p>
+            <p>{dat.comments.length} comments</p>
           </div>
         </div>
       </div>

@@ -6,6 +6,11 @@ interface newArticle {
     img: string;
     title: string;
     shortDes: string;
+    comments: {
+      id: number;
+      username: string;
+      comment: string;
+    }[];
   }
 
 export default function InNewArticle() {
@@ -42,8 +47,9 @@ export default function InNewArticle() {
       img: articleImage.replace('./Images/', ''),
       title: articleTitle,
       shortDes: articleDes,
+      comments: []
     };
-    setBlogData((prevBlogsData: newArticle[]) => [...prevBlogsData, newArticle]);
+    setBlogData((prevBlogsData: newArticle[]) => [newArticle,...prevBlogsData]);
     setArticleTitle("");
     setArticleImage("");
     setArticleDes("");

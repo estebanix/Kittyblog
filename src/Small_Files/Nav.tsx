@@ -19,8 +19,12 @@ export default function Nav() {
     setToogleDown((old: boolean) => !old);
   };
 
-  const navRef = useRef<HTMLNavElement>(null);
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setIsRecent(true);
+  }
 
+  const navRef = useRef<HTMLNavElement>(null);
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -60,7 +64,7 @@ export default function Nav() {
             />
             {toogleDown && (
               <div className="logout--box">
-                <button onClick={() => setLoggedIn(false)}>Log out</button>
+                <button onClick={handleLogout}><Link to="/">Log out</Link></button>
               </div>
             )}
           </div>

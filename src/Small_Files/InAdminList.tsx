@@ -6,7 +6,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export default function InAdminList(){
 
-    const { blogData, setBlogData } = useContext(Context);
+    const { blogData, setBlogData, setCurrentBlogData } = useContext(Context);
 
     const deleteArticle = (articleId : number) => {
         const updatedBlogData = blogData.filter((article) => article.id !== articleId);
@@ -20,7 +20,7 @@ export default function InAdminList(){
             <p style={{width:"15%"}}>{dat.author}</p>
             <p style={{width:"15%"}}>{dat.comments.length}</p>
             <div style={{width:"10%"}}>
-                <button><Link to="/editarticle"><FontAwesomeIcon icon={faPen} /></Link></button>
+                <button onClick={() => setCurrentBlogData(dat)}><Link to="/editarticle"><FontAwesomeIcon icon={faPen} /></Link></button>
                 <button onClick={() => deleteArticle(dat.id)}><FontAwesomeIcon icon={faTrash} /></button>
             </div>
         </div>

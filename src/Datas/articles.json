@@ -12,13 +12,17 @@
           "id": 1,
           "img" : "./Images/CommImg/lex.png",
           "username": "Lex Fridman",
-          "comment": "This is a great article!"
+          "comment": "Cat whiskers exemplify nature's implementation of AI principles, providing felines with unparalleled spatial awareness and graceful navigation capabilities.",
+          "time" : "2 hours ago",
+          "likes" : 3
         },
         {
           "id": 2,
           "img" : "./Images/CommImg/til.jpg",
           "username": "Till Lindemann",
-          "comment": "I learned something new about cats!"
+          "comment": "Katzen haben Schnurrhaare, um in der Dunkelheit die Dämonen zu spüren.",
+          "time" : "7 hours ago",
+          "likes" : 1
         }
       ]
     },
@@ -27,7 +31,7 @@
         "img" : "./Images/ArticleImg/cat2.jpg",
         "title": "Wet vs. Dry Cat Food: Which is Better?",
         "author": "Samuel Kertés",
-        "date": "07/16/16",
+        "date": "01/16/17",
         "shortDes": "If you aren’t sure how much wet food you should feed your cat, Purina’s expert nutritionists can help. Plus, they offer guidance on food safety and provide serving ideas your cat will love.",
         "longDes": "Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.",
         "comments" : []
@@ -37,7 +41,7 @@
         "img" : "./Images/ArticleImg/cat3.jpg",
         "title": "How Much Wet Food Should I Feed My Cat?",
         "author": "Samuel Kertés",
-        "date": "06/25/19",
+        "date": "12/27/16",
         "shortDes": "Some cat owners prefer to feed their cats wet food. Others prefer dry kibble. Trying to decide between wet vs. dry cat food? Find out what our experts recommend when it comes to feeding your cat.",
         "longDes": "Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.",
         "comments": [
@@ -45,31 +49,41 @@
               "id": 1,
               "img" : "./Images/CommImg/nick.jpg",
               "username": "Nick Cave",
-              "comment": "This is a great article!"
+              "comment": "Feeding your cat the right amount of wet food is crucial for their health and well-being. Meow on, fellow cat lovers!",
+              "time" : "8 hours ago",
+              "likes" : 11
             },
             {
               "id": 2,
               "img" : "./Images/CommImg/arnold.jpg",
               "username": "Arnold Schwarzenegger",
-              "comment": "I learned something new about cats!"
+              "comment": "Wet food is like a protein-packed meal for your feline friends. They'll say, 'I'll be back for more!",
+              "time" : "2 days ago",
+              "likes" : 6
             },
             {
                 "id": 3,
                 "img" : "./Images/CommImg/elon.jpg",
                 "username": "Elon Musk",
-                "comment": "I learned something new about cats!"
+                "comment": "Cats are fascinating creatures, and their dietary needs can vary. I'm launching the Cat-X program to explore new wet food options!",
+                "time" : "Week ago",
+                "likes" : 1
             },
             {
                 "id": 4,
                 "img" : "./Images/CommImg/aragorn.jpg",
                 "username": "Aragorn, son of Arathorn",
-                "comment": "I learned something new about cats!"
+                "comment": "One does not simply ignore the importance of wet food. It's the fuel that propels your cat's adventures, just like the Ring of Power!",
+                "time" : "3 weeks ago",
+                "likes" : 9
             },
             {
                 "id": 5,
                 "img" : "./Images/CommImg/shakira.jpg",
                 "username": "Shakira",
-                "comment": "I learned something new about cats!"
+                "comment": "Hips don't lie, and neither do cats! Treat them to the best wet food, and they'll be belly-dancing with joy!",
+                "time" : "Month ago",
+                "likes" : 46
             }
           ]
     },
@@ -78,7 +92,7 @@
         "img" : "./Images/ArticleImg/cat4.jpg",
         "title": "Do Cats Drink Water? Cat Hydration & Dehydration Prevention",
         "author": "Samuel Kertés",
-        "date": "03/17/17",
+        "date": "12/17/16",
         "shortDes": "Do cats drink water? Yes, like humans and many other animals, cats need water to survive. Many cats don’t drink as much as they should, though. Find out why they need water and how to get your own kitty to drink more.",
         "longDes": "Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.",
         "comments": [
@@ -86,7 +100,9 @@
               "id": 1,
               "img" : "./Images/CommImg/sam.jpg",
               "username": "Sam Altman",
-              "comment": "This is a great article!"
+              "comment": "Recognizing the significance of cat hydration is essential for their overall vitality. By promoting a consistent intake of fresh water, we actively contribute to our feline friends' well-being, preventing dehydration and fostering their enduring health and happiness",
+              "time" : "2 hours ago",
+              "likes" : 3
             }
           ] 
     },
@@ -95,7 +111,7 @@
         "img" : "./Images/ArticleImg/cat5.jpg",
         "title": "What Is the Difference Between Natural and Organic Cat Food?",
         "author": "Samuel Kertés",
-        "date": "01/03/16",
+        "date": "11/23/16",
         "shortDes": "If you prefer your own diet to be natural or organic, you’re probably considering feeding your cat a natural or organic cat food, too. What’s the difference between the two, though, and how do you decide which is right for your cat? Find out here.",
         "longDes": "Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.Viete prečo mačička mňauka a nebrechá? Tu sa to dozviete.",
         "comments" : [
@@ -103,13 +119,17 @@
               "id": 1,
               "img" : "./Images/CommImg/geralt.jpg",
               "username": "Geralt of Rivia",
-              "comment": "This is a great article!"
+              "comment": "Food is food. Natural, organic, conventional... Makes no difference. The categorization's arbitrary. The definition's blurred. If I'm to choose between one type of food and another... I'd rather choose both.",
+              "time" : "3 weeks ago",
+              "likes" : 16
             },
             {
               "id": 2,
               "img" : "./Images/CommImg/kim.jpg",
               "username": "Kim Kardashian",
-              "comment": "I learned something new about cats!"
+              "comment": "Choosing cat food? It's all about finding what works for your fur babies. Natural, organic, or a mix, consult experts for the right fit. Happy, healthy cats are the goal. Meow!",
+              "time" : "2 months ago",
+              "likes" : 2
             }
           ]
       }

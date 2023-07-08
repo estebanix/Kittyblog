@@ -1,5 +1,6 @@
 import  {createContext, useState} from "react";
-import BlogDatas from "../Datas/articles.json"
+import BlogDatas from "../Datas/articles.json";
+import AdminDatas from "../Datas/admin.json";
 
 export interface ContextType {
     blogData: any[];
@@ -9,6 +10,7 @@ export interface ContextType {
     isRecent: boolean;
     loggedIn: boolean;
     setLoggedIn: (data: boolean) => void;
+    adminData: any[];
   }
   
   export const Context = createContext<ContextType>({} as ContextType);
@@ -17,6 +19,7 @@ export interface ContextType {
 const ContextProvider = (props) => {
     
     const [blogData, setBlogData] = useState(BlogDatas);
+    const [adminData, setAdminData] = useState(AdminDatas)
     const [currentBlogData, setCurrentBlogData] = useState({});
     const [isRecent, setIsRecent] = useState(true);
     const [loggedIn, setLoggedIn] = useState(false);
@@ -29,7 +32,8 @@ const ContextProvider = (props) => {
             setCurrentBlogData,
             isRecent,
             loggedIn,
-            setLoggedIn
+            setLoggedIn,
+            adminData
             }}>
             {props.children}
         </Context.Provider>

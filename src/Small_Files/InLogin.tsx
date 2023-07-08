@@ -3,22 +3,23 @@ import { Context } from "../Context/Context";
 import { useContext } from "react";
 
 export default function InLogin() {
-  const { setLoggedIn } = useContext(Context);
+  const { setLoggedIn, adminData } = useContext(Context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-
-    if (email === "a@a.cz" && password === "a") {
+  
+    if (email === adminData[0].loginEmail && password === adminData[0].loginPassword) {
       setLoggedIn(true);
       setLoginError(false);
     } else {
       setLoginError(true);
     }
   };
+  
 
   return (
     <main className="inlogin--container">

@@ -8,9 +8,12 @@ export interface ContextType {
     currentBlogData: any;
     setCurrentBlogData: (data: any) => void;
     isRecent: boolean;
+    setIsRecent: (data: any) => void;
     loggedIn: boolean;
     setLoggedIn: (data: boolean) => void;
     adminData: any[];
+    toogleDown: boolean;
+    setToogleDown: (data: boolean) => void;
   }
   
   export const Context = createContext<ContextType>({} as ContextType);
@@ -23,6 +26,7 @@ const ContextProvider = (props) => {
     const [currentBlogData, setCurrentBlogData] = useState({});
     const [isRecent, setIsRecent] = useState(true);
     const [loggedIn, setLoggedIn] = useState(false);
+    const [toogleDown, setToogleDown] = useState(false);
 
     return(
         <Context.Provider value={{
@@ -31,9 +35,12 @@ const ContextProvider = (props) => {
             currentBlogData,
             setCurrentBlogData,
             isRecent,
+            setIsRecent,
             loggedIn,
             setLoggedIn,
-            adminData
+            adminData,
+            toogleDown,
+            setToogleDown
             }}>
             {props.children}
         </Context.Provider>

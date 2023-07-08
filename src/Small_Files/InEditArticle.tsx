@@ -1,6 +1,9 @@
-
+import { useContext } from "react";
+import { Context } from "../Context/Context";
 
 export default function InEditArticle(){
+    const {currentBlogData} = useContext(Context);
+
     return(
         <div className="inadminlist--container">
             <div className="inadminlist--smallbox smallbox--newarticle">
@@ -9,12 +12,12 @@ export default function InEditArticle(){
             </div>
             <div className="inarticel--inputbox">
                 <p style={{ fontSize: '16px' }}>Article Title</p>
-                <input type="text" placeholder="Title" />
+                <input type="text" placeholder="Title" value={currentBlogData.title} />
             </div>
             <div className="inarticel--imageup">
                 <p style={{ fontSize: '16px' }}>Featured Image</p>
                 <img
-                    src={"a"}
+                    src={currentBlogData.img}
                     alt="Selected"
                     style={{ height: '74px', margin: 'auto' }}
                 />
@@ -26,7 +29,9 @@ export default function InEditArticle(){
             </div>
             <div className="inarticle--content">
                 <p style={{ fontSize: '16px' }}>Content</p>
-                <textarea placeholder="Content" />
+                <textarea placeholder="Content" 
+                value={currentBlogData.shortDes}
+                />
             </div>
         </div>
     );

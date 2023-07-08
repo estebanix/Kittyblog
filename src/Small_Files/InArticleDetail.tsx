@@ -23,11 +23,24 @@ interface BlogData {
     likes: number;
   }
 
+  interface newComment {
+    id: number;
+    img: string;
+    title: string;
+    shortDes: string;
+    comments: {
+      id: number;
+      username: string;
+      comment: string;
+    }[];
+  }
+
 export default function InArticleDetail() {
   const { id, title, author, date, img, shortDes, comments } = useContext(Context).currentBlogData;
   const { blogData, setCurrentBlogData, loggedIn, adminData } = useContext(Context);
 
   const [likes, setLikes] = useState(comments.map((comment: CommentData) => comment.likes));
+  const [newComment, setNewComment] = useState("");
 
   const relatedArticles = blogData.filter((article) => {
     return article.id !== id;
@@ -64,6 +77,22 @@ export default function InArticleDetail() {
     }
   };
 
+  const handleComment = (e) => {
+        setNewComment(e.target.value)
+  }
+
+  const handlePublicComm = () => {
+    const newCom = {
+        img: adminData[0].profilePicture,
+        username: adminData[0].username,
+        comment: newComment,
+        time: "Now",
+        likes: 0
+    }
+    console.log(newCom);
+    setNewComment("")
+  }
+
   return (
     <main className="inarticle--container detail">
       <div className="inarticledetail--bigbox">
@@ -81,7 +110,8 @@ export default function InArticleDetail() {
           {loggedIn && 
             <div className="comment--minibox">
                 <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src={adminData[0].profilePicture} />
-                <input type="text" placeholder="Join the discussion" />
+                <input onChange={handleComment} type="text" placeholder="Join the discussion" value={newComment} />
+                <button onClick={handlePublicComm}>try</button>
             </div>
           }
           {comments.map((comment: CommentData, index: number) => (

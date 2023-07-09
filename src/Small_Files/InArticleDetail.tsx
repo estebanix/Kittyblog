@@ -83,6 +83,7 @@ export default function InArticleDetail() {
 
   const handlePublicComm = () => {
     const newCom = {
+        id: Date.now(),
         img: adminData[0].profilePicture,
         username: adminData[0].username,
         comment: newComment,

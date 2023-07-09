@@ -89,7 +89,11 @@ export default function InArticleDetail() {
         time: "Now",
         likes: 0
     }
-    console.log(newCom);
+    setLikes([0, ...likes]);
+    setCurrentBlogData((prevData) => ({
+      ...prevData,
+      comments: [newCom ,...prevData.comments]
+    }));
     setNewComment("")
   }
 

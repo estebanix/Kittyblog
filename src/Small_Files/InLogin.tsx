@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Context } from "../Context/Context";
-import { useContext } from "react";
+
 
 export default function InLogin() {
   const { setLoggedIn, adminData } = useContext(Context);

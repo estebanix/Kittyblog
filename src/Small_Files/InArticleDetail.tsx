@@ -1,8 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronUp, faChevronDown, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { Context } from "../Context/Context";
+import ReactMarkdown from 'react-markdown';
 
 interface BlogData {
   id: number;
@@ -108,16 +109,16 @@ export default function InArticleDetail() {
           <p>{currentBlogData.date}</p>
         </div>
         <div className="inarticledetail--imgbox" style={{ backgroundImage: `url(${currentBlogData.img})`, marginBottom: "30px" }}></div>
-        <p className="markdown--para">{currentBlogData.shortDes}</p>
-        <p className="markdown--para">{currentBlogData.shortDes}</p>
-        <p className="markdown--para">{currentBlogData.shortDes}</p>
+        <ReactMarkdown className="markdown--para">
+          {currentBlogData.shortDes}
+        </ReactMarkdown>
         <div className="comments--container">
           <h2 style={{ marginBottom: "20px" }}>Comments({currentBlogData.comments.length})</h2>
           {loggedIn && 
             <div className="comment--minibox">
                 <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src={adminData[0].profilePicture} />
                 <input onChange={handleComment} type="text" placeholder="Join the discussion" value={newComment} />
-                <button onClick={handlePublicComm}>try</button>
+                <button style={{marginLeft:"10px"}} className="comment--btn" onClick={handlePublicComm}><FontAwesomeIcon icon={faPaperPlane} /></button>
             </div>
           }
           {currentBlogData.comments.map((comment: CommentData, index: number) => (

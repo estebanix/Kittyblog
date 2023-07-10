@@ -3,6 +3,8 @@ import { Context } from "../Context/Context";
 
 interface newArticle {
     id: number;
+    author: string;
+    date: string;
     img: string;
     title: string;
     shortDes: string;
@@ -14,7 +16,7 @@ interface newArticle {
   }
 
 export default function InNewArticle() {
-  const { blogData, setBlogData } = useContext(Context);
+  const { blogData, setBlogData, adminData } = useContext(Context);
 
   const [articleTitle, setArticleTitle] = useState('');
   const [articleImage, setArticleImage] = useState('');
@@ -43,7 +45,9 @@ export default function InNewArticle() {
   const handlePublish = () => {
     const lastId = blogData.length > 0 ? blogData[blogData.length - 1].id : 0;
     const newArticle: newArticle = {
-      id: lastId + 1,  
+      id: lastId + 1,
+      author: adminData[0].username,
+      date: "Now",  
       img: articleImage.replace('./Images/', ''),
       title: articleTitle,
       shortDes: articleDes,

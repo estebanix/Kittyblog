@@ -1,6 +1,7 @@
 import { Context } from "../Context/Context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
 
 interface BlogData {
   id: number;
@@ -29,7 +30,9 @@ export default function InArticleList() {
             <p>{dat.author}</p>
             <p>{dat.date}</p>
           </div>
-          <h5>{dat.shortDes}</h5>
+          <ReactMarkdown className="markdown--para">
+          {dat.shortDes}
+        </ReactMarkdown>
           <div className="inarticlelist--minibox">
             <Link to={`/${dat.id}`} onClick={() => handleData(dat)}>
               <button>Read whole article</button>

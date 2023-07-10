@@ -186,6 +186,10 @@ input:focus, textarea:focus{
   width: 524px;
 }
 
+.smallbox--edirarticle{
+  width: 386px;
+}
+
 .inadminlist--smallbox button{
   width: 154px;
   height: 36px;

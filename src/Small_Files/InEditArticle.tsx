@@ -1,11 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { Context } from "../Context/Context";
 
 export default function InEditArticle() {
-  const { currentBlogData, setCurrentBlogData, blogData, setBlogData } = useContext(Context);
+  const { currentBlogData, setCurrentBlogData, blogData, setBlogData } = useContext(
+    Context
+  );
   const [title, setTitle] = useState(currentBlogData.title);
   const [image, setImage] = useState(currentBlogData.img);
   const [content, setContent] = useState(currentBlogData.shortDes);
+
+  const fileInputRef = useRef(null);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -22,6 +26,15 @@ export default function InEditArticle() {
 
   const handleContentChange = (e) => {
     setContent(e.target.value);
+  };
+
+  const handleUploadNew = () => {
+    fileInputRef.current.value = null;
+    fileInputRef.current.click();
+  };
+
+  const handleDeleteImage = () => {
+    setImage("");
   };
 
   const handlePublish = () => {
@@ -46,7 +59,7 @@ export default function InEditArticle() {
 
   return (
     <div className="inadminlist--container">
-      <div className="inadminlist--smallbox smallbox--newarticle">
+      <div className="inadminlist--smallbox smallbox--edirarticle">
         <h1 style={{ fontSize: "40px" }}>Edit article</h1>
         <button onClick={handlePublish}>Publish Article</button>
       </div>
@@ -61,19 +74,29 @@ export default function InEditArticle() {
       </div>
       <div className="inarticel--imageup">
         <p style={{ fontSize: "16px" }}>Featured Image</p>
-        <img
-          src={image}
-          alt="Selected"
-          style={{ height: "74px", margin: "auto" }}
-        />
-        <input
-          type="file"
-          style={{ display: "none" }}
-          onChange={handleImageChange}
-        />
-        <button onClick={() => document.querySelector('input[type="file"]').click()}>
-          Upload an Image
-        </button>
+        {image ? (
+          <>
+            <img
+              src={image}
+              alt="Selected"
+              style={{ height: "74px", margin: "auto" }}
+            />
+            <div style={{display:"flex", justifyContent:"space-between", width:"200px"}}>
+                <button style={{backgroundColor:"transparent", color:"blue"}} onClick={handleUploadNew}>Upload a new</button>
+                <button style={{backgroundColor:"transparent", color:"red"}}  onClick={handleDeleteImage}>Delete</button>
+            </div>
+          </>
+        ) : (
+          <>
+            <input
+              ref={fileInputRef}
+              type="file"
+              style={{ display: "none" }}
+              onChange={handleImageChange}
+            />
+            <button onClick={handleUploadNew}>Upload an Image</button>
+          </>
+        )}
       </div>
       <div className="inarticle--content">
         <p style={{ fontSize: "16px" }}>Content</p>

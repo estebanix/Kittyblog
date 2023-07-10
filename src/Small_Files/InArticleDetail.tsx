@@ -1,52 +1,39 @@
-import { Context } from "../Context/Context";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { Context } from "../Context/Context";
 
 interface BlogData {
-    id: number;
-    img: string;
-    title: string;
-    author: string;
-    date: string;
-    shortDes: string;
-    comments: CommentData[];
-  }
-  
-  interface CommentData {
-    id: number;
-    img: string;
-    username: string;
-    time: string;
-    comment: string;
-    likes: number;
-  }
+  id: number;
+  img: string;
+  title: string;
+  author: string;
+  date: string;
+  shortDes: string;
+  comments: CommentData[];
+}
 
-  interface newComment {
-    id: number;
-    img: string;
-    title: string;
-    shortDes: string;
-    comments: {
-      id: number;
-      username: string;
-      comment: string;
-    }[];
-  }
+interface CommentData {
+  id: number;
+  img: string;
+  username: string;
+  comment: string;
+  time: string;
+  likes: number;
+}
 
 export default function InArticleDetail() {
-  const { id, title, author, date, img, shortDes, comments } = useContext(Context).currentBlogData;
-  const { blogData, setCurrentBlogData, loggedIn, adminData } = useContext(Context);
+  const { currentBlogData, blogData, setBlogData, setCurrentBlogData, loggedIn, adminData } = useContext(Context);
 
-  const [likes, setLikes] = useState(comments.map((comment: CommentData) => comment.likes));
+  const [likes, setLikes] = useState(currentBlogData.comments.map((comment: CommentData) => comment.likes));
   const [newComment, setNewComment] = useState("");
 
-  const relatedArticles = blogData.filter((article) => {
-    return article.id !== id;
+  const relatedArticles = blogData.filter((article: BlogData) => {
+    return article.id !== currentBlogData.id;
   });
 
-  const components = relatedArticles.map((dat) => {
+  const components = relatedArticles.map((dat: BlogData) => {
     return (
       <div key={dat.id}>
         <Link to={`/${dat.id}`} onClick={() => handleData(dat)}>
@@ -68,7 +55,7 @@ export default function InArticleDetail() {
     updatedLikes[index] += 1;
     setLikes(updatedLikes);
   };
-  
+
   const handleDecreaseLikes = (index: number) => {
     const updatedLikes = [...likes];
     if (updatedLikes[index] > 0) {
@@ -77,41 +64,55 @@ export default function InArticleDetail() {
     }
   };
 
-  const handleComment = (e) => {
-        setNewComment(e.target.value)
-  }
+  const handleComment = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewComment(e.target.value);
+  };
 
   const handlePublicComm = () => {
-    const newCom = {
-        id: Date.now(),
-        img: adminData[0].profilePicture,
-        username: adminData[0].username,
-        comment: newComment,
-        time: "Now",
-        likes: 0
-    }
-    setLikes([0, ...likes]);
-    setCurrentBlogData((prevData) => ({
-      ...prevData,
-      comments: [newCom ,...prevData.comments]
-    }));
-    setNewComment("")
-  }
+    const newCom: CommentData = {
+      id: Date.now(),
+      img: adminData[0].profilePicture,
+      username: adminData[0].username,
+      comment: newComment,
+      time: "Now",
+      likes: 0
+    };
+
+    const updatedComments = [newCom, ...currentBlogData.comments];
+    const updatedBlogData: BlogData = {
+      ...currentBlogData,
+      comments: updatedComments
+    };
+
+    setCurrentBlogData(updatedBlogData);
+    setLikes([...likes, 0]);
+
+    const updatedBlogDataList = blogData.map((blog: BlogData) => {
+      if (blog.id === currentBlogData.id) {
+        return updatedBlogData;
+      }
+      return blog;
+    });
+
+    setBlogData(updatedBlogDataList);
+
+    setNewComment("");
+  };
 
   return (
     <main className="inarticle--container detail">
       <div className="inarticledetail--bigbox">
-        <h1 style={{ fontSize: "40px" }}>{title}</h1>
+        <h1 style={{ fontSize: "40px" }}>{currentBlogData.title}</h1>
         <div style={{ margin: "20px 0", color: "#6C757D", fontSize: "14px" }} className="inarticlelist--minibox">
-          <p>{author}</p>
-          <p>{date}</p>
+          <p>{currentBlogData.author}</p>
+          <p>{currentBlogData.date}</p>
         </div>
-        <div className="inarticledetail--imgbox" style={{ backgroundImage: `url(${img})`, marginBottom: "30px" }}></div>
-        <p className="markdown--para">{shortDes}</p>
-        <p className="markdown--para">{shortDes}</p>
-        <p className="markdown--para">{shortDes}</p>
+        <div className="inarticledetail--imgbox" style={{ backgroundImage: `url(${currentBlogData.img})`, marginBottom: "30px" }}></div>
+        <p className="markdown--para">{currentBlogData.shortDes}</p>
+        <p className="markdown--para">{currentBlogData.shortDes}</p>
+        <p className="markdown--para">{currentBlogData.shortDes}</p>
         <div className="comments--container">
-          <h2 style={{ marginBottom: "20px" }}>Comments({comments.length})</h2>
+          <h2 style={{ marginBottom: "20px" }}>Comments({currentBlogData.comments.length})</h2>
           {loggedIn && 
             <div className="comment--minibox">
                 <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src={adminData[0].profilePicture} />
@@ -119,7 +120,7 @@ export default function InArticleDetail() {
                 <button onClick={handlePublicComm}>try</button>
             </div>
           }
-          {comments.map((comment: CommentData, index: number) => (
+          {currentBlogData.comments.map((comment: CommentData, index: number) => (
             <div className="comment--minibox" key={comment.id}>
               <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src={comment.img} />
               <div className="comment--miniright">
@@ -151,4 +152,3 @@ export default function InArticleDetail() {
     </main>
   );
 }
-

@@ -1,8 +1,8 @@
 [
     {
         "username" : "Samuel Kertés",
-        "loginEmail" : "a@a.cz",
-        "loginPassword" : "a",
+        "loginEmail" : "zadanie@applifting.cz",
+        "loginPassword" : "123456",
         "profilePicture" : "./Images/Profile/profilepic.jpg"
     }
 ]
